@@ -25,8 +25,12 @@ import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.snackbar.Snackbar
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 import com.ruchanokal.carcatalog.R
 import com.ruchanokal.carcatalog.adapter.CarAdapter
+import com.ruchanokal.carcatalog.databinding.AuthorizedDialogBinding
 import com.ruchanokal.carcatalog.databinding.FragmentCarsBinding
 import com.ruchanokal.carcatalog.databinding.LayoutDialogBinding
 import com.ruchanokal.carcatalog.model.Car
@@ -37,13 +41,15 @@ class CarsFragment : Fragment() {
 
     private var binding : FragmentCarsBinding? = null
     private var binding2 : LayoutDialogBinding? = null
+    private var binding3 : AuthorizedDialogBinding? = null
     var selectedBitmap : Bitmap? = null
     private lateinit var carList : ArrayList<Car>
     var uri : Uri? = null
     private lateinit var carAdapter : CarAdapter
     private lateinit var permissionLauncher : ActivityResultLauncher<String>
     private lateinit var activityResultLauncher: ActivityResultLauncher<Intent>
-
+    private lateinit var db : FirebaseFirestore
+    var password : Long = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -69,6 +75,8 @@ class CarsFragment : Fragment() {
     override fun onResume() {
         super.onResume()
         println("onResume")
+
+        db = Firebase.firestore
 
         carList = ArrayList()
         carAdapter = CarAdapter(carList)
@@ -113,9 +121,62 @@ class CarsFragment : Fragment() {
 
         binding!!.fab1.setOnClickListener {
 
-            openDialog()
+
+            openAuthorizedDialog()
 
         }
+    }
+
+    private fun openAuthorizedDialog() {
+
+        val builder = AlertDialog.Builder(requireActivity())
+        binding3 = AuthorizedDialogBinding.inflate(layoutInflater)
+
+
+
+        builder.setView(binding3!!.root)
+            .setNegativeButton(requireActivity().resources.getString(R.string.cancel), DialogInterface.OnClickListener { dialog, which ->
+
+            }).setPositiveButton(requireActivity().resources.getString(R.string.enter), DialogInterface.OnClickListener { dialog, which ->
+
+                val enteredPassword = binding3!!.passwordText.text.toString()
+
+                db.collection("password").addSnapshotListener { value, error ->
+
+                    if (value != null){
+
+                        if (!value.isEmpty){
+
+                            val documents = value.documents
+
+                            for (document in documents){
+
+                                password = document.getLong("password")!!
+
+                            }
+
+
+                            if (enteredPassword.toLong() == password){
+                                openDialog()
+                            } else{
+                                Toast.makeText(requireContext(),requireActivity().resources.getString(R.string.wrong_password),Toast.LENGTH_SHORT).show()
+                            }
+
+                        }
+                    }
+
+                }
+
+
+            })
+
+
+
+
+
+
+        builder.create().show()
+
     }
 
     override fun onPause() {

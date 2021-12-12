@@ -15,8 +15,8 @@
     <string name="cancel">Cancel</string>
     <string name="write_the_car_brand">Write the Car Brand...</string>
     <string name="write_the_car_model">Write the Car Model...</string>
-    <string name="delete">Delete </string>
-    <string name="models"> Models</string>
+    <string name="delete">"Delete "</string>
+    <string name="models">" Models"</string>
     <string name="car_models">Car Models</string>
     <string name="car_catalog">Car Catalog</string>
     <string name="car_details">Car Details</string>
@@ -25,5 +25,9 @@
     <string name="permission_needed">Permission Needed!</string>
     <string name="give_permission">Give Permission</string>
     <string name="select_logo_and_brand_name">Select Logo and Brand Name</string>
+    <string name="enter_your_password">Enter Your Password..</string>
+    <string name="you_must_enter_password">You must enter a password to add products</string>
+    <string name="enter">Enter</string>
+    <string name="wrong_password">Wrong Password!</string>
 
 </resources>
