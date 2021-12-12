@@ -241,7 +241,12 @@ class CarsFragment : Fragment() {
                     carAdapter.notifyDataSetChanged()
 
                     cursor.close()
-                }
+
+                } else if(carBrandName.isNullOrEmpty()){
+                    Toast.makeText(requireContext(),resources.getString(R.string.you_should_give_informations),Toast.LENGTH_SHORT).show()
+                } else
+                    Toast.makeText(requireContext(),resources.getString(R.string.you_must_choose_car_logo),Toast.LENGTH_SHORT).show()
+
             })
 
 
