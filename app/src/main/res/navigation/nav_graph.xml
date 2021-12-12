@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/carsFragment">
+
+    <fragment
+        android:id="@+id/carsFragment"
+        android:name="com.ruchanokal.carcatalog.fragment.CarsFragment"
+        android:label="fragment_cars"
+        tools:layout="@layout/fragment_cars" >
+        <action
+            android:id="@+id/action_carsFragment_to_carModelsFragment"
+            app:destination="@id/carModelsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/carModelsFragment"
+        android:name="com.ruchanokal.carcatalog.fragment.CarModelsFragment"
+        android:label="fragment_car_models"
+        tools:layout="@layout/fragment_car_models" >
+        <action
+            android:id="@+id/action_carModelsFragment_to_modelDetailsFragment"
+            app:destination="@id/modelDetailsFragment" />
+        <argument
+            android:name="Id"
+            app:argType="integer" />
+        <argument
+            android:name="CarBrandName"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/modelDetailsFragment"
+        android:name="com.ruchanokal.carcatalog.fragment.ModelDetailsFragment"
+        android:label="fragment_model_details"
+        tools:layout="@layout/fragment_model_details">
+        <argument
+            android:name="ModelIndex"
+            app:argType="integer" />
+        <argument
+            android:name="CarIndex"
+            app:argType="integer" />
+        <action
+            android:id="@+id/action_modelDetailsFragment_to_modelDetailsFragmentTab1"
+            app:destination="@id/modelDetailsFragmentTab1" />
+        <action
+            android:id="@+id/action_modelDetailsFragment_to_modelDetailsFragmentTab2"
+            app:destination="@id/modelDetailsFragmentTab2" />
+        <argument
+            android:name="ModelName"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/modelDetailsFragmentTab1"
+        android:name="com.ruchanokal.carcatalog.fragment.ModelDetailsFragmentTab1"
+        android:label="fragment_model_details_tab1"
+        tools:layout="@layout/fragment_model_details_tab1" >
+        <argument
+            android:name="CarIndex"
+            app:argType="integer" />
+        <argument
+            android:name="ModelIndex"
+            app:argType="integer" />
+    </fragment>
+    <fragment
+        android:id="@+id/modelDetailsFragmentTab2"
+        android:name="com.ruchanokal.carcatalog.fragment.ModelDetailsFragmentTab2"
+        android:label="fragment_model_details_tab2"
+        tools:layout="@layout/fragment_model_details_tab2" >
+        <argument
+            android:name="CarIndex"
+            app:argType="integer" />
+        <argument
+            android:name="ModelIndex"
+            app:argType="integer" />
+    </fragment>
+</navigation>

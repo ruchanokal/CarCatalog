@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">Car Catalog</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="photos">PHOTOS</string>
+    <string name="features">FEATURES</string>
+    <string name="power">Power</string>
+    <string name="powerDetail">Power..</string>
+    <string name="torque">Torque</string>
+    <string name="torqueDetail">Torque..</string>
+    <string name="production">Production</string>
+    <string name="productionDetail">Production..</string>
+    <string name="write_the_details_of_the_car_model">Write the details of the car model...</string>
+    <string name="save">Save</string>
+    <string name="cancel">Cancel</string>
+    <string name="write_the_car_brand">Write the Car Brand...</string>
+    <string name="write_the_car_model">Write the Car Model...</string>
+    <string name="delete">Delete </string>
+    <string name="models"> Models</string>
+    <string name="car_models">Car Models</string>
+    <string name="car_catalog">Car Catalog</string>
+    <string name="car_details">Car Details</string>
+    <string name="please_enter_the_required_informations">Please enter the required informations</string>
+    <string name="please_choose_car_picture">Please choose a car picture</string>
+    <string name="permission_needed">Permission Needed!</string>
+    <string name="give_permission">Give Permission</string>
+    <string name="select_logo_and_brand_name">Select Logo and Brand Name</string>
+
+</resources>

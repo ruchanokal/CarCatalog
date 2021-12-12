@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "353928001563",
+    "project_id": "carcatalog-3ab1c",
+    "storage_bucket": "carcatalog-3ab1c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:353928001563:android:462b61a4764ed8a84460be",
+        "android_client_info": {
+          "package_name": "com.ruchanokal.carcatalog"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "353928001563-hot2fhs5bsggj3sgiv69bedeu81iii66.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAwgL8jZKrBbwFxUhYJgi6fmMDoiQgbU4k"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "353928001563-hot2fhs5bsggj3sgiv69bedeu81iii66.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
